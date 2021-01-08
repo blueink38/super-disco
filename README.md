@@ -22,6 +22,7 @@ This application allows that user to update a calendar with hourly to-do list
 * CSS3
 * JavaScript 1.8
 * JQuery 3.5.1
+* Bootstrap
 * Moments.js
 
 
