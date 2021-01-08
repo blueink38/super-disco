@@ -18,6 +18,9 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js" integrity="sha512-Dz4zO7p6MrF+VcOD6PUbA08hK1rv0hDv/wGuxSUjImaUYxRyK2gLC6eQWVqyDN9IM1X/kUA8zkykJS/gEVOd3w==" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
     <link rel="stylesheet" href="style.css" />
     <title>Work Day Scheduler</title>
   </head>
@@ -32,115 +35,135 @@
       <!-- Timeblocks go here -->
       <div class="time-block">
         <div class="row">
-          <div class="hour">06:00</div>
+          <div class="hour">6:00 am</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">07:00</div>
+          <div class="hour">7:00 am</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">08:00</div>
+          <div class="hour">8:00 am</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">09:00</div>
+          <div class="hour">9:00 am</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">10:00</div>
+          <div class="hour">10:00 am</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">11:00</div>
+          <div class="hour">11:00 am</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">12:00</div>
+          <div class="hour">12:00 pm</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">13:00</div>
+          <div class="hour">1:00 pm</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">14:00</div>
+          <div class="hour">2:00 pm</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">15:00</div>
+          <div class="hour">3:00 pm</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">16:00</div>
+          <div class="hour">4:00 pm</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">17:00</div>
+          <div class="hour">5:00 pm</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">18:00</div>
+          <div class="hour">6:00 pm</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">19:00</div>
+          <div class="hour">7:00 pm</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">20:00</div>
+          <div class="hour">8:00 pm</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
-
-
-
-
-
     </div>
+
+
+    <script>
+// get current date
+    var today = moment();
+
+    currentDay.textContent = today.format('dddd, MMMM Do YYYY, h:mm a');
+    console.log(currentDay);
+
+  //  $('#currentDay').text('today');
+  //  console.log(today);
+  //    $(this).html('.p lead');
+
+// get current time
+
+// add to p id="currentDay" class="lead"
+// color code time blocks: past, present, future
+// get description input
+// save description input on saveBtn click
+// enable persistence
+
+
+    </script>
+
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
