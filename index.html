@@ -30,110 +30,111 @@
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
+      <p id="currentTime" class="lead"></p>
     </header>
     <div class="container">
       <!-- Timeblocks go here -->
       <div class="time-block">
         <div class="row">
-          <div class="hour">6:00 am</div>
+          <div class="hour">6:00 AM</div>
+          <input class="description"  id="6am" value=""></input>
+          <button class="saveBtn" id="save6am">save</button>
+        </div>
+      </div>
+      <div class="time-block">
+        <div class="row">
+          <div class="hour">7:00 AM</div>
+          <input class="description" id="7am"></input>
+          <button class="saveBtn" id="save7am">save</button>
+        </div>
+      </div>
+      <div class="time-block">
+        <div class="row">
+          <div class="hour">8:00 AM</div>
+          <input type="text" class="description" id="8am"></input>
+          <button class="saveBtn" id="save8am">save</button>
+        </div>
+      </div>
+      <div class="time-block">
+        <div class="row">
+          <div class="hour">9:00 AM</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">7:00 am</div>
+          <div class="hour">10:00 AM</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">8:00 am</div>
+          <div class="hour">11:00 AM</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">9:00 am</div>
+          <div class="hour">12:00 PM</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">10:00 am</div>
+          <div class="hour">1:00 PM</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">11:00 am</div>
+          <div class="hour">2:00 PM</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">12:00 pm</div>
+          <div class="hour">3:00 PM</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">1:00 pm</div>
+          <div class="hour">4:00 PM</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">2:00 pm</div>
+          <div class="hour">5:00 PM</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">3:00 pm</div>
+          <div class="hour">6:00 PM</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
       <div class="time-block">
         <div class="row">
-          <div class="hour">4:00 pm</div>
+          <div class="hour">7:00 PM</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
       </div>
-      <div class="time-block">
+      <div class="time-block" id="8pm">
         <div class="row">
-          <div class="hour">5:00 pm</div>
-          <input class="description"></input>
-          <button class="saveBtn">save</button>
-        </div>
-      </div>
-      <div class="time-block">
-        <div class="row">
-          <div class="hour">6:00 pm</div>
-          <input class="description"></input>
-          <button class="saveBtn">save</button>
-        </div>
-      </div>
-      <div class="time-block">
-        <div class="row">
-          <div class="hour">7:00 pm</div>
-          <input class="description"></input>
-          <button class="saveBtn">save</button>
-        </div>
-      </div>
-      <div class="time-block">
-        <div class="row">
-          <div class="hour">8:00 pm</div>
+          <div class="hour">8:00 PM</div>
           <input class="description"></input>
           <button class="saveBtn">save</button>
         </div>
@@ -141,23 +142,61 @@
     </div>
 
 
+$(".time-block").each(function()
+)
+
+
     <script>
-// get current date
+// get current date/time, add to header
     var today = moment();
+    var now = moment();
 
-    currentDay.textContent = today.format('dddd, MMMM Do YYYY, h:mm a');
+    currentDay.textContent = today.format('dddd, MMMM Do YYYY');
     console.log(currentDay);
+    currentTime.textContent = now.format('LT');
+    console.log(currentTime);
 
-  //  $('#currentDay').text('today');
-  //  console.log(today);
-  //    $(this).html('.p lead');
 
-// get current time
-
-// add to p id="currentDay" class="lead"
 // color code time blocks: past, present, future
 // get description input
+//$(".description").on("click", function(){
+//  console.log("<description> was clicked");
+//  var test = $("#6am").val();
+//  console.log("test ", test);
+//});
+
+
 // save description input on saveBtn click
+
+const descriptionInput = document.querySelector('.description');
+const button = document.querySelector('.saveBtn');
+
+descriptionInput.addEventListener('input', letter => {
+  console.log(letter.target.value);
+})
+
+const saveToLocalStorage = () => {
+  localStorage.setItem('description', descriptionInput.textContent)
+}
+
+button.addEventListener('click', saveToLocalStorage)
+
+
+$(".saveBtn, save6am").on("click", function(){
+  console.log("<saveBtn 6am> was clicked");
+  console.log($("#6am").val());
+  localStorage.setItem('description', $("#6am").val());
+
+});
+
+
+if($(".saveBtn, save8am") === true) {
+  console.log("<saveBtn 8am> was clicked")
+  var test8am = $("#8am").val
+  console.log($(".description, 8am"));
+  }
+
+
 // enable persistence
 
 
