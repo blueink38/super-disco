@@ -36,71 +36,67 @@
       <!-- Timeblocks go here -->
       <div id="timeNine" class="row time-block">
           <div class="hour">9:00 AM</div>
-          <input class="description"  value=""></input>
+          <input class="textarea"></input>
           <button class="saveBtn" >
             <i class="far fa-save"></i>
           </button>
       </div>
       <div id="timeTen" class="row time-block">
         <div class="hour">10:00 AM</div>
-        <input class="description"  value=""></input>
+        <input class="textarea"></input>
         <button class="saveBtn" >
           <i class="far fa-save"></i>
         </button>
       </div>
       <div id="timeEleven" class="row time-block">
         <div class="hour">11:00 AM</div>
-        <input class="description"  value=""></input>
+        <input class="textarea"></input>
         <button class="saveBtn" >
           <i class="far fa-save"></i>
         </button>
       </div>
         <div id="timeTwelve" class="row time-block">
           <div class="hour">12:00 PM</div>
-          <input class="description"  value=""></input>
+          <input class="textarea"></input>
           <button class="saveBtn" >
             <i class="far fa-save"></i>
           </button>
       </div>
       <div id="timeThirteen" class="row time-block">
         <div class="hour">1:00 PM</div>
-        <input class="description"  value=""></input>
+        <input class="textarea"></input>
         <button class="saveBtn" >
           <i class="far fa-save"></i>
         </button>
       </div>
       <div id="timeFourteen" class="row time-block">
         <div class="hour">2:00 PM</div>
-        <input class="description"  value=""></input>
+        <input class="textarea"></input>
         <button class="saveBtn" >
           <i class="far fa-save"></i>
         </button>
       </div>
       <div id="timeFifteen" class="row time-block">
         <div class="hour">3:00 PM</div>
-        <input class="description"  value=""></input>
+        <input class="textarea"></input>
         <button class="saveBtn" >
           <i class="far fa-save"></i>
         </button>
       </div>
       <div id="timeSixteen" class="row time-block">
         <div class="hour">4:00 PM</div>
-        <input class="description"  value=""></input>
+        <input class="textarea"></input>
         <button class="saveBtn" >
           <i class="far fa-save"></i>
         </button>
       </div>
       <div id="timeSeventeen" class="row time-block">
         <div class="hour">5:00 PM</div>
-        <input class="description"  value=""></input>
+        <input class="textarea"></input>
         <button class="saveBtn" >
           <i class="far fa-save"></i>
         </button>
     </div>
-
-
-
-
     </div>
 
 
@@ -108,65 +104,106 @@
 
     <script>
 // get current date/time, add to header
-    var today = moment();
-    var now = moment();
-
-    currentDay.textContent = today.format('dddd, MMMM Do YYYY');
-    console.log(currentDay);
-    currentTime.textContent = now.format('LT');
+    var currentDay = moment().format('dddd, MMMM Do YYYY');
+      $("#currentDay").html(currentDay);
+    var currentTime = moment().hour();
     console.log(currentTime);
 
+      
+    //  console.log(currentDay);
+    //var descriptionTime = moment().format('LT');
 
-  //  const timeEl = document.getElementById('currentTime')
-  //    console.log(timeEl);
+
+     
+function getTime() {}     
     
-// split current time into hours and mins
-   // var currentTimeSplit = timeEl;
-   // var str = currentTimeSplit.split(":");
-   // console.log(currentTimeSplit);
+
+$(document).ready(function() {
+
+  // get description input, save to local storage
+  $(".saveBtn").on("click", function() {
+    console.log("save button was clicked");
+    var descriptionTime = $(this).parent().attr("id");
+    var descriptionInfo = $(this).siblings(".textarea").val();
+      localStorage.setItem(descriptionTime, descriptionInfo);
+  })
+
+  $(".time-block").each(function() {
+    var rowTime = parseInt($(this).attr("id").split("block-"[1]));
+
+    if(rowTime > currentTime) {
+      $("textarea").addClass("future");
+      $("textarea").removeClass("present");
+      $("textarea").removeClass("past");
+    }
+
+    else if(rowTime = currentTime) {
+      $("textarea").removeClass("future");
+      $("textarea").addClass("present");
+      $("textarea").removeClass("past");
+    }
+
+    else (rowTime < currentTime) {
+      $("textarea").removeClass("future");
+      $("textarea").removeClass("present");
+      $("textarea").addClass("past");
+    }
+
+
+
+  })
+  
+
+
+})
+
+  // add persistence
+  $("#timeNine. textarea").val(localStorage.getItem("timeNine"));
+  $("#timeTen. textarea").val(localStorage.getItem("timeTen"));
+  $("#timeEleven. textarea").val(localStorage.getItem("timeEleven"));
+  $("#timeTwelve. textarea").val(localStorage.getItem("timeTwelve"));
+  $("#timeThirteen. textarea").val(localStorage.getItem("timeThirteen"));
+  $("#timeFourteen. textarea").val(localStorage.getItem("timeFourteen"));
+  $("#timeFifteen. textarea").val(localStorage.getItem("timeFifteen"));
+  $("#timeSixteen. textarea").val(localStorage.getItem("timeSixteen"));
+  $("#timeSeventeen. textarea").val(localStorage.getItem("timeSeventeen"));
 
 
 // color code time blocks: past, present, future
 
 
+// var descriptionInput = document.querySelector('.description');
+// var descriptionTime = document.querySelector('.currentTime');
+// console.log(descriptionInput);
+// console.log(descriptionTime);
 
-// get description input
-const descriptionInput = document.querySelector('.description');
-const button = document.querySelector('.saveBtn');
-const storedDescription = localStorage.getItem('description');
-const descriptionTime = document.querySelector('.currentTime');
 
-// descriptionInput.addEventListener('input', letter => {
-  // console.log(letter.target.value);
-// })
-
-const saveToLocalStorage = () => {
-  localStorage.setItem('time', descriptionTime.textContent)
-  localStorage.setItem('description', descriptionInput.textContent)
-}
+// const saveToLocalStorage = () => {
+//   localStorage.setItem('description', descriptionInput.textContent)
+//   localStorage.setItem('time', descriptionTime.textContent)
+// }
 
 // save description input on saveBtn click
-button.addEventListener('click', saveToLocalStorage)
 
 
 
-$(".saveBtn, save6am").on("click", function(){
-  console.log("<saveBtn> was clicked");
-  console.log($("#7am").val());
-  localStorage.setItem('description', $("#7am").val());
-
-});
 
 
-if($(".saveBtn, save8am") === true) {
-  console.log("<saveBtn 8am> was clicked")
-  var test8am = $("#8am").val
-  console.log($(".description, 8am"));
-  }
+//$(".saveBtn, save6am").on("click", function(){
+//  console.log("<saveBtn> was clicked");
+//  console.log($("#7am").val());
+//  localStorage.setItem('description', $("#7am").val());
+// });
+
+
+// if($(".saveBtn, save8am") === true) {
+  // console.log("<saveBtn 8am> was clicked")
+  // var test8am = $("#8am").val
+  // console.log($(".description, 8am"));
+  // }
 
 
 // enable persistence
-
 
     </script>
 
