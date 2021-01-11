@@ -1,63 +1,59 @@
 // get current date/time, add to header
 var currentDay = moment().format('dddd, MMMM Do YYYY');
 $("#currentDay").html(currentDay);
-var currentTime = moment().hour();
-console.log(currentTime);
-
-
-//  console.log(currentDay);
-//var descriptionTime = moment().format('LT');
-
-
-
-function getTime() {}     
-
 
 $(document).ready(function() {
-
-// get description input, save to local storage
 $(".saveBtn").on("click", function() {
-console.log("save button was clicked");
+
 var descriptionTime = $(this).parent().attr("id");
-var descriptionInfo = $(this).siblings(".textarea").val();
+var descriptionInfo = $(this).siblings(".description").val();
+
 localStorage.setItem(descriptionTime, descriptionInfo);
 })
 
+
+function getTime() {     
+
+var currentTime = moment().hour();
+
+
+// get description input, save to local storage
+
+
 $(".time-block").each(function() {
-var rowTime = parseInt($(this).attr("id").split("block-"[1]));
+var rowTime = parseInt($(this).attr("id").split("zone-")[1]);
 
 if(rowTime > currentTime) {
-$("textarea").addClass("future");
-$("textarea").removeClass("present");
-$("textarea").removeClass("past");
+$(this).removeClass("present");
+$(this).removeClass("past");
+$(this).addClass("future");
+
 }
 
 else if(rowTime === currentTime) {
-$("textarea").removeClass("future");
-$("textarea").addClass("present");
-$("textarea").removeClass("past");
+$(this).removeClass("future");
+$(this).removeClass("past");
+$(this).addClass("present");
+
 }
+
 else {
-$("textarea").removeClass("future");
-$("textarea").removeClass("present");
-$("textarea").addClass("past");
-}
+$(this).removeClass("future");
+$(this).removeClass("present");
+$(this).addClass("past");
+}})}
+
 getTime();
-
-
 })
 
-
-
-})
 
 // add persistence
-$("#timeNine. textarea").val(localStorage.getItem("timeNine"));
-$("#timeTen. textarea").val(localStorage.getItem("timeTen"));
-$("#timeEleven. textarea").val(localStorage.getItem("timeEleven"));
-$("#timeTwelve. textarea").val(localStorage.getItem("timeTwelve"));
-$("#timeThirteen. textarea").val(localStorage.getItem("timeThirteen"));
-$("#timeFourteen. textarea").val(localStorage.getItem("timeFourteen"));
-$("#timeFifteen. textarea").val(localStorage.getItem("timeFifteen"));
-$("#timeSixteen. textarea").val(localStorage.getItem("timeSixteen"));
-$("#timeSeventeen. textarea").val(localStorage.getItem("timeSeventeen"));
+$("#zone-Nine .description").val(localStorage.getItem("zone-Nine"));
+$("#zone-Ten .description").val(localStorage.getItem("zone-Ten"));
+$("#zone-Eleven .description").val(localStorage.getItem("zone-Eleven"));
+$("#zone-Twelve .description").val(localStorage.getItem("zone-Twelve"));
+$("#zone-Thirteen .description").val(localStorage.getItem("zone-Thirteen"));
+$("#zone-Fourteen .description").val(localStorage.getItem("zone-Fourteen"));
+$("#zone-Fifteen .description").val(localStorage.getItem("zone-Fifteen"));
+$("#zone-Sixteen .description").val(localStorage.getItem("zone-Sixteen"));
+$("#zone-Seventeen .description").val(localStorage.getItem("zone-Seventeen"));
