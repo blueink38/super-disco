@@ -1,8 +1,10 @@
-// get current date/time, add to header
+// get current date add to header
 var currentDay = moment().format('dddd, MMMM Do YYYY');
 $("#currentDay").html(currentDay);
 
 $(document).ready(function() {
+
+// when save button is clicked
 $(".saveBtn").on("click", function() {
 
 var descriptionTime = $(this).parent().attr("id");
@@ -17,9 +19,6 @@ function getTime() {
 var currentTime = moment().hour();
 
 
-// get description input, save to local storage
-
-
 $(".time-block").each(function() {
 var rowTime = parseInt($(this).attr("id").split("zone-")[1]);
 
@@ -27,14 +26,12 @@ if(rowTime > currentTime) {
 $(this).removeClass("present");
 $(this).removeClass("past");
 $(this).addClass("future");
-
 }
 
 else if(rowTime === currentTime) {
 $(this).removeClass("future");
 $(this).removeClass("past");
 $(this).addClass("present");
-
 }
 
 else {

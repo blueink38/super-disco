@@ -15,7 +15,7 @@
 This application allows that user to update a calendar with hourly to-do list
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+![Example screenshot](src="./assets/js/script.js">)
 
 ## Technologies
 * HTML5
@@ -31,14 +31,14 @@ Describe how to install / setup your local environement / add link to demo versi
 
 ## Code Examples
 Show examples of usage:
-`put-your-code-here`
+`var descriptionTime = $(this).parent().attr("id");`
 
 ## Features
-* User can choose the day of the event
 * Hourly due dates can be added
 * Color-coordinated up-coming and past-due functionality
 
 To-do list:
+* Choose day
 * Update to user's calendar
 * Links to the user's projects
 
